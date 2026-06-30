@@ -1,8 +1,4 @@
-import mongoose, {
-  Schema,
-  type HydratedDocument,
-  type InferSchemaType,
-} from "mongoose";
+import mongoose, { Schema, HydratedDocument, InferSchemaType } from "mongoose";
 
 const projectSchema = new Schema(
   {

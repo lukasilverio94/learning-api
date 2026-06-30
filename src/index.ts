@@ -1,17 +1,12 @@
-import express, { type Application } from "express";
-import mongoose from "mongoose";
+import express, { Application } from "express";
 import logger from "morgan";
 import "dotenv/config";
+import { connectDB } from "./config/db.js";
 
 const app: Application = express();
 const PORT = process.env.PORT || 5000;
 
-mongoose
-  .connect(process.env.MONGO_URI || "mongodb://localhost:27017")
-  .then(() => {
-    console.log("Connected to database");
-  })
-  .catch((error) => console.log("Error: ", error));
+connectDB();
 
 app.use(logger("dev"));
 app.use(express.json);
